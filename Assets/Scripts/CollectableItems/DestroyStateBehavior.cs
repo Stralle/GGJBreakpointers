@@ -20,7 +20,7 @@ public class DestroyStateBehavior : StateMachineBehaviour
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		// destroing a parent object, hack but ...
-		Destroy(animator.gameObject.transform.parent);
+		Destroy(animator.gameObject.transform.parent.gameObject);
 	}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
