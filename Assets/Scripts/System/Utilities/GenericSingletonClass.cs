@@ -39,7 +39,7 @@ public class Singleton<T> : MonoBehaviour, LazyInitialized where T : Component, 
 	public static bool CheckIfHaveInstance() { return instance != null || FindObjectOfType<T>() != null; }
 
 	// to make singleton work inside one scene
-	[SerializeField] bool _doNotDestroyOnLoad = true;
+	[SerializeField] protected bool _doNotDestroyOnLoad = true;
 
 	public virtual void Awake()
 	{

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum EResourceType
 {
-	Junk
+	Junk,
+	Size
 }
 
 public class Loot : MonoBehaviour, IDestructible
@@ -30,7 +31,7 @@ public class Loot : MonoBehaviour, IDestructible
 
 		_isDestroyed = true;
 
-		// todo: add resources
+		GameRulesManager.Instance.ResourcesCollected(EResourceType.Junk, 1);
 
 		// it will remove object after playing the animation in DestroyStateBehavior
 		_animator.SetTrigger("Destroy");
