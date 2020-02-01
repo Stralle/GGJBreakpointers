@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstPhaseTimer: {fileID: 8622070089598349107}
+  _numberOfJunk: {fileID: 15251393295137819}
 --- !u!1 &15251394313345932
 GameObject:
   m_ObjectHideFlags: 0

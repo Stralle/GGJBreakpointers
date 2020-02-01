@@ -1916,7 +1916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb0d4362c9b441508701d20e5248377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doNotDestroyOnLoad: 1
+  _doNotDestroyOnLoad: 0
+  _enemySpawner: {fileID: 675119776}
   TIME_OF_REPARE_PHASE: 30
 --- !u!4 &1243671118
 Transform:
@@ -8190,26 +8191,6 @@ PrefabInstance:
     - target: {fileID: 15251394072441466, guid: 9210908ec09b9486ba06d5a0372c48a1,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 297599659992214960, guid: 9210908ec09b9486ba06d5a0372c48a1,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 297599659992214960, guid: 9210908ec09b9486ba06d5a0372c48a1,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 297599659992214960, guid: 9210908ec09b9486ba06d5a0372c48a1,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 297599659992214960, guid: 9210908ec09b9486ba06d5a0372c48a1,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
