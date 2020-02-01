@@ -9,6 +9,10 @@ namespace JamGame
 	{
 		Camera _camera = null;
 
+		Vector2 _lastFrameMousePosition = Vector2.zero;
+		[SerializeField]
+		float _cameraMoveSpeed = 5.0f;
+
 		// add subscription for event if camera changes
 		public Camera GetActiveCamera()
 		{
@@ -55,6 +59,24 @@ namespace JamGame
 						trap.PlayerInteract();
 					}
 				}
+			}
+
+			//-----------  Camera movement logic
+			//The camera is moving with the right mouse button
+
+			if (Input.GetMouseButton(1))
+			{
+				Camera activeCamera = GetActiveCamera();
+
+				Vector3 currentMousePosition = Input.mousePosition;
+				currentMousePosition.z = 10;
+				Vector3 mouseDelta = activeCamera.ScreenToViewportPoint(_lastFrameMousePosition) - activeCamera.ScreenToViewportPoint(currentMousePosition);
+				_lastFrameMousePosition = currentMousePosition;
+
+
+				Vector3 moveToPosition = new Vector3(mouseDelta.x, mouseDelta.y, 0) * Time.deltaTime * _cameraMoveSpeed;
+				moveToPosition.z = activeCamera.transform.position.z;
+				activeCamera.transform.position += moveToPosition;
 			}
 		}
 
