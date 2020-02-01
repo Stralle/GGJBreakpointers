@@ -53,6 +53,7 @@ public class EnemyMovementPhases : MonoBehaviour
 			++_currentMovementPhase;
 			if (_currentMovementPhase > _movementPhases - 1)
 			{
+				GameRulesManager.Instance.EndGame();
 				return;
 			}
 			int _randomPoint = UnityEngine.Random.Range(0, _movementPoints[_currentMovementPhase].points.Length);

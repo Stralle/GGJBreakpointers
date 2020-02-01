@@ -43,6 +43,7 @@ public class SpikeTrap : Trap
         if (!_isRepaired)
         {
             _isRepaired = true;
+			_isActive = true;
             ChangeSpikeSprite();
             
             GameRulesManager.Instance.ResourcesSpent(EResourceType.Junk, _junkCost);
@@ -55,6 +56,7 @@ public class SpikeTrap : Trap
         if (_isRepaired)
         {
             _isRepaired = false;
+			_isActive = false;
             ChangeSpikeSprite();
 
             GameRulesManager.Instance.ResourcesCollected(EResourceType.Junk, _junkCost);

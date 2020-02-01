@@ -30,14 +30,42 @@ public class EnemyBase : MonoBehaviour
 	{
 		Debug.Log("EnemyBAse: OnTriggerEnter2D");
 		// todo::get dumage from trap and apply it
-		TakeDamage(100);
+		Trap trap = collision.GetComponent<Trap>();
+		if (trap && trap.CanDealDamage())
+		{
+			TakeDamage(100);
+		}
+
+		InteractablePart interactible = collision.GetComponent<InteractablePart>();
+		if (interactible)
+		{
+			Loot loot = interactible.GetMainGameObject().GetComponent<Loot>();
+			if (loot)
+			{
+				loot.DestroyByEnemy();
+			}
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		Debug.Log("EnemyBAse: OnCollisionEnter2D");
 		// todo::get dumage from trap and apply it
-		TakeDamage(100);
+		Trap trap = collision.gameObject.GetComponent<Trap>();
+		if (trap && trap.CanDealDamage())
+		{
+			TakeDamage(100);
+		}
+
+		InteractablePart interactible = collision.gameObject.GetComponent<InteractablePart>();
+		if (interactible)
+		{
+			Loot loot = interactible.GetMainGameObject().GetComponent<Loot>();
+			if (loot)
+			{
+				loot.DestroyByEnemy();
+			}
+		}
 	}
 
 	// Start is called before the first frame update

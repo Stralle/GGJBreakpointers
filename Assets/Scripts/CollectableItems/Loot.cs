@@ -44,4 +44,17 @@ public class Loot : MonoBehaviour, IDestructible
 	{
 		return _destructibleType;
 	}
+
+	public void DestroyByEnemy()
+	{
+		if (_isDestroyed)
+		{
+			return;
+		}
+
+		_isDestroyed = true;
+
+		// it will remove object after playing the animation in DestroyStateBehavior
+		_animator.SetTrigger("Destroy");
+	}
 }

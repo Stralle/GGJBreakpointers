@@ -13,4 +13,6 @@ public interface IDestructible
 {
 	EDestructibleType GetDestructibleType();
 	void DestroyAndGetResources();
+
+	void DestroyByEnemy();
 }
