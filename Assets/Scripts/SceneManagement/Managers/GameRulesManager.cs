@@ -50,6 +50,11 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 		_itemsCollected[(int)type] += amount;
 	}
 
+    public void ResourcesSpent(EResourceType type, int amount)
+    {
+        _itemsCollected[(int)type] -= amount;
+    }
+
 	// place to run the whole logic of switching phase
 	void GoToTheSecondStage()
 	{

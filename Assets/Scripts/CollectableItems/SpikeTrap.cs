@@ -26,9 +26,9 @@ public class SpikeTrap : Trap
         }
     }
 
-    public void SetSpikeTrapActive(bool _setActive)
+    public void ChangeSpikeSprite()
     {
-        if (_setActive)
+        if (_isRepaired)
         {
             _spriteRendererComponent.sprite = _activeSpikeSprite;
         }
@@ -37,13 +37,33 @@ public class SpikeTrap : Trap
             _spriteRendererComponent.sprite = _brokenSpikeSprite;
         }
     }
+
     public override void RepairAndSpendResources()
     {
         if (!_isRepaired)
         {
             _isRepaired = true;
-
+            ChangeSpikeSprite();
+            
+            GameRulesManager.Instance.ResourcesSpent(EResourceType.Junk, _junkCost);
+            // TODO: Decrease other player's resources
         }
+    }
 
+    public override void DestroyAndReceiveResources()
+    {
+        if (_isRepaired)
+        {
+            _isRepaired = false;
+            ChangeSpikeSprite();
+
+            GameRulesManager.Instance.ResourcesCollected(EResourceType.Junk, _junkCost);
+            // TODO: Increase other player's resources
+        }
+    }
+
+    public override bool CanDealDamage()
+    {
+        return IsActive;
     }
 }
