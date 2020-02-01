@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,4 +45,21 @@ public class Trap : MonoBehaviour, IRepairable
     public virtual bool CanDealDamage() { return _isActive; }
     public virtual void DestroyAndReceiveResources() { }
 
+	public virtual bool CanBeRepared()
+	{
+		// todo: make it check for price
+		return true;
+	}
+
+	public void PlayerInteract()
+	{
+		if (IsRepaired)
+		{
+			DestroyAndReceiveResources();
+		}
+		else if (!IsRepaired && CanBeRepared())
+		{
+			RepairAndSpendResources();
+		}
+	}
 }

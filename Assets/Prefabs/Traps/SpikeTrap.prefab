@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5235552496977805807}
   - component: {fileID: 5235552496977805806}
   - component: {fileID: 5235552496977805805}
+  - component: {fileID: 5450063135237407637}
   m_Layer: 0
   m_Name: SpikeTrap
   m_TagString: Untagged
@@ -96,9 +97,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trapType: 0
   _animator: {fileID: 0}
+  _damageDealt: 0
+  _junkCost: 0
   _isRepaired: 1
   _isActive: 1
   _brokenSpikeSprite: {fileID: 5151962614583625095, guid: 4c1fa0adf0d45fa4191c3076c8c20d98,
     type: 3}
   _activeSpikeSprite: {fileID: 7382210792774636493, guid: 4c1fa0adf0d45fa4191c3076c8c20d98,
     type: 3}
+--- !u!61 &5450063135237407637
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235552496977805804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

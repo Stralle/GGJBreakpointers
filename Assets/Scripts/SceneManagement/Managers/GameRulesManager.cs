@@ -25,7 +25,7 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 
 		_timer = TIME_OF_REPARE_PHASE;
 
-		Debug.Assert(_doNotDestroyOnLoad, "Manager should be destroyed on Load");
+		Debug.Assert(!_doNotDestroyOnLoad, "Manager should be destroyed on Load");
 		_itemsCollected = new int[(int)EResourceType.Size];
 		for (int i = 0; i < (int)EResourceType.Size; i++)
 		{
