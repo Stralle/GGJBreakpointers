@@ -26,7 +26,7 @@ public class EnemyBase : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision collision)
+	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		// todo::get dumage from trap and apply it
 		TakeDamage(100);
