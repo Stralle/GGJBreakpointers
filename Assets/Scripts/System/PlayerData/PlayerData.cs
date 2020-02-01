@@ -3,7 +3,7 @@
 [Serializable]
 public class PlayerData
 {
-	public string playerName = "player123";
-	public string lastSevedTime = ""; // timestamp in seconds
-	public int maxScores = 0;
+	public string _playerName = "player123";
+	public string _lastSavedTime = ""; // timestamp in seconds
+	public int _maxScores = 0;
 }

@@ -13,16 +13,16 @@ public class PlayerInfo : Singleton<PlayerInfo>
 
 	public PlayerData PlayerData => _playerData;
 
-	public int GetPlayerMaxScores() => _playerData.maxScores;
+	public int GetPlayerMaxScores() => _playerData._maxScores;
 	public void SetPlayerMaxScores(int scores)
 	{
-		_playerData.maxScores = scores;
+		_playerData._maxScores = scores;
 	}
 
-	public string GetPlayerName() => _playerData.playerName;
+	public string GetPlayerName() => _playerData._playerName;
 	public void SetPlayerName(string name)
 	{
-		_playerData.playerName = name;
+		_playerData._playerName = name;
 	}
 
 	public void SaveData()
@@ -30,7 +30,7 @@ public class PlayerInfo : Singleton<PlayerInfo>
 		Debug.Assert(_initialized);
 
 		string curTime = DateTime.Now.ToString();
-		_playerData.lastSevedTime = curTime;
+		_playerData._lastSavedTime = curTime;
 
 		JsonSaveSystem.SavePlayer(_playerData, _dataPath);
 	}
