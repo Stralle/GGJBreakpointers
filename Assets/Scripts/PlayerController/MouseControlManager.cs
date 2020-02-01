@@ -31,17 +31,18 @@ namespace JamGame
 
 			if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
 			{
-				Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-				RaycastHit hit;
+				Debug.Log("MouseControlManager: mouse pressed");
 
-				if (Physics.Raycast(ray, out hit))
+				RaycastHit2D hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+				if (hit.collider != null)
 				{
-					Debug.Log("MouseControlManager: input provided, hit target: " + hit.collider.name);
+					Debug.Log("MouseControlManager: hit target: " + hit.collider.name);
 
-					GameObject interactable = hit.collider.gameObject;
+					InteractablePart interactable = hit.collider.gameObject.GetComponent<InteractablePart>();
 					if (interactable != null)
 					{
-						IDestructible destructible = interactable.GetComponent<Loot>() as IDestructible;
+						IDestructible destructible = interactable.GetMainGameObject().GetComponent<Loot>() as IDestructible;
 						if (destructible != null)
 						{
 							destructible.DestroyAndGetResources();
