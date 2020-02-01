@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovementPhases : MonoBehaviour
 {
 	[System.Serializable]
-	struct EnemyDecisionPoint
+	public struct EnemyDecisionPoint
 	{
 		public Transform[] points;
 	}
