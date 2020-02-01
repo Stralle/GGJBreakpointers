@@ -10,32 +10,23 @@ public enum ETrapType
 
 public class Trap : MonoBehaviour, IRepairable
 {
-    [SerializeField] ETrapType _trapType = ETrapType.Invalid;
+    [SerializeField] 
+    ETrapType _trapType = ETrapType.Invalid;
 
-    [SerializeField] Animator _animator = null;
+    [SerializeField] 
+    Animator _animator = null;
 
-    bool _isRepaired = false;
+    [SerializeField]
+    protected bool _isRepaired = false;
+    [SerializeField]
+    protected bool _isActive = false;
 
-    bool _isActive = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public ETrapType GetTrapType()
+    public virtual ETrapType GetTrapType()
     {
         return _trapType;
     }
 
-    public void RepairAndSpendResources()
+    public virtual void RepairAndSpendResources()
     {
         // TODO: Implement logic here and stuff
         throw new System.NotImplementedException();
