@@ -9,6 +9,11 @@ namespace JamGame
 	{
 		Camera _camera = null;
 
+		Vector3 moveStartPosition = Vector3.zero;
+		[SerializeField]
+		float _cameraMoveSpeed = 5.0f;
+		float groundZ = 0;
+
 		// add subscription for event if camera changes
 		public Camera GetActiveCamera()
 		{
@@ -25,6 +30,24 @@ namespace JamGame
 		void Update()
 		{
 			if (IsGameOnPause())
+			{
+				return;
+			}
+
+			//-----------  Camera movement logic
+			//The camera is moving with the right mouse button
+			if (Input.GetMouseButtonDown(1))
+			{
+				moveStartPosition = GetWorldPosition(groundZ);
+			}
+			if (Input.GetMouseButton(1))
+			{
+				Camera activeCamera = GetActiveCamera();
+				Vector3 direction = moveStartPosition - GetWorldPosition(groundZ);
+				activeCamera.transform.position += direction;
+			}
+
+			if (GameRulesManager.Instance.GamePhase == EGamePhase.Defend)
 			{
 				return;
 			}
@@ -56,6 +79,16 @@ namespace JamGame
 					}
 				}
 			}
+		}
+
+		private Vector3 GetWorldPosition(float z)
+		{
+			Camera activeCamera = GetActiveCamera();
+			Ray mousePos = activeCamera.ScreenPointToRay(Input.mousePosition);
+			Plane ground = new Plane(Vector3.forward, new Vector3(0, 0, z));
+			float distance;
+			ground.Raycast(mousePos, out distance);
+			return mousePos.GetPoint(distance);
 		}
 
 		override protected void AwakeInitialization()

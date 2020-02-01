@@ -13,6 +13,8 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	private EGamePhase _gamePhase = EGamePhase.Repare;
 	public EGamePhase GamePhase => _gamePhase;
 
+	[SerializeField] EnemySpawner _enemySpawner = null;
+
 	float _timer = 0f;
 	public float Timer => _timer;
 	public float TIME_OF_REPARE_PHASE = 30f;
@@ -45,6 +47,11 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 		}
 	}
 
+	public int GetAmountOfResources(EResourceType type)
+	{
+		return _itemsCollected[(int)type];
+	}
+
 	public void ResourcesCollected(EResourceType type, int amount)
 	{
 		_itemsCollected[(int)type] += amount;
@@ -63,6 +70,11 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	void GoToTheSecondStage()
 	{
 		_gamePhase = EGamePhase.Defend;
+
+		if (_enemySpawner)
+		{
+			_enemySpawner.SpawnEnemy();
+		}
 	}
 
 	public virtual void EndGame()

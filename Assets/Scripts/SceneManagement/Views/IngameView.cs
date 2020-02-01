@@ -9,6 +9,8 @@ public class IngameView : ViewBase
 {
 	[SerializeField] TextMeshProUGUI _firstPhaseTimer = null;
 
+	[SerializeField] TextMeshProUGUI _numberOfJunk = null;
+
 	bool _shouldShowTimer = true;
 
 	private void Update()
@@ -19,6 +21,12 @@ public class IngameView : ViewBase
 			_firstPhaseTimer.text = time.ToString();
 
 			_shouldShowTimer = GameRulesManager.Instance.GamePhase == EGamePhase.Repare;
+		}
+
+		if (_numberOfJunk)
+		{
+			int num = GameRulesManager.Instance.GetAmountOfResources(EResourceType.Junk);
+			_numberOfJunk.text = num.ToString();
 		}
 	}
 }

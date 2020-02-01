@@ -23,11 +23,19 @@ public class EnemyBase : MonoBehaviour
 		if (Health <= 0)
 		{
 			_animator.SetTrigger("isDead");
+			Destroy(gameObject);
 		}
+	}
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		Debug.Log("EnemyBAse: OnTriggerEnter2D");
+		// todo::get dumage from trap and apply it
+		TakeDamage(100);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		Debug.Log("EnemyBAse: OnCollisionEnter2D");
 		// todo::get dumage from trap and apply it
 		TakeDamage(100);
 	}
