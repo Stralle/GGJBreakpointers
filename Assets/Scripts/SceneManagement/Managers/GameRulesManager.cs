@@ -52,7 +52,11 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 
     public void ResourcesSpent(EResourceType type, int amount)
     {
-        _itemsCollected[(int)type] -= amount;
+        if (_itemsCollected[(int)type] >= amount)
+        {
+            _itemsCollected[(int)type] -= amount;
+        }
+        Debug.Log("Not enough resources of type " + type.ToString());
     }
 
 	// place to run the whole logic of switching phase
