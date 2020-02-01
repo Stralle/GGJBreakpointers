@@ -14,6 +14,7 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	public EGamePhase GamePhase => _gamePhase;
 
 	float _timer = 0f;
+	public float Timer => _timer;
 	public float TIME_OF_REPARE_PHASE = 30f;
 
 	int[] _itemsCollected;
