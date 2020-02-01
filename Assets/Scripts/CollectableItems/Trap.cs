@@ -6,6 +6,8 @@ using UnityEngine;
 public enum ETrapType
 {
     Spikes,
+    Arrow,
+    BuzzSaw,
     Invalid
 }
 

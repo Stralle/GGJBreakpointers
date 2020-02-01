@@ -2059,6 +2059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
+  _cameraMoveSpeed: 5
 --- !u!4 &1359194866
 Transform:
   m_ObjectHideFlags: 0
