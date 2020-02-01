@@ -28,7 +28,6 @@ public class Trap : MonoBehaviour, IRepairable
 
     public virtual void RepairAndSpendResources()
     {
-        // TODO: Implement logic here and stuff
-        throw new System.NotImplementedException();
+
     }
 }

@@ -37,4 +37,13 @@ public class SpikeTrap : Trap
             _spriteRendererComponent.sprite = _brokenSpikeSprite;
         }
     }
+    public override void RepairAndSpendResources()
+    {
+        if (!_isRepaired)
+        {
+            _isRepaired = true;
+
+        }
+
+    }
 }
