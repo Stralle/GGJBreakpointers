@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
 {
 	[SerializeField] Rigidbody2D _rigidBody = null;
 	[SerializeField] EnemyAnimator _charAnimator = null;
+
 	Camera _camera = null;
 
 	//[SerializeField] List<BoxCollider2D> _attackColliders = new List<BoxCollider2D>();
@@ -34,12 +35,13 @@ public class EnemyMovement : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		Debug.Assert(_charAnimator, "_charAnimator not set!");
-		_charAnimator.OnAttackStateChangedEvent += OnAttackStateChanged;
+		//Debug.Assert(_charAnimator, "_charAnimator not set!");
+		//_charAnimator.OnAttackStateChangedEvent += OnAttackStateChanged;
 
 		_camera = Camera.main;
 
 		DeactivateAttackColliders();
+		_rigidBody = GetComponent<Rigidbody2D>();
 	}
 
 	void OnAttackStateChanged(bool isAttacking)
@@ -61,7 +63,7 @@ public class EnemyMovement : MonoBehaviour
 		//	col.enabled = false;
 		//}
 
-		_universalAttackBox.transform.GetChild(0).gameObject.SetActive(false);
+		//_universalAttackBox.transform.GetChild(0).gameObject.SetActive(false);
 	}
 
 	private void ActivateAttackCollider()
@@ -73,15 +75,15 @@ public class EnemyMovement : MonoBehaviour
 
 	void UpdateMovementInput()
 	{
-		//TODO: create an AI movement here
+		////TODO: create an AI movement here
 
-		_horzInput = 0f; // Input.GetAxisRaw("Horizontal");
-		_vertInput = 0f; //Input.GetAxisRaw("Vertical");
+		//_horzInput = 0f; // Input.GetAxisRaw("Horizontal");
+		//_vertInput = 0f; //Input.GetAxisRaw("Vertical");
 
-		_movementInput = new Vector2(_horzInput, _vertInput);
-		_movementVelocity = _movementInput.normalized * _movementSpeed;
+		//_movementInput = new Vector2(_horzInput, _vertInput);
+		//_movementVelocity = _movementInput.normalized * _movementSpeed;
 
-		_charAnimator.SetMovementInputValue(_movementInput.magnitude);
+		//_charAnimator.SetMovementInputValue(_movementInput.magnitude);
 	}
 
 	void UpdateMovementDirection()
@@ -109,19 +111,19 @@ public class EnemyMovement : MonoBehaviour
 			}
 		}
 
-		_mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+		//_mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-		_charAnimator.SetMovementDirection((int)_movementDirection);
+		//_charAnimator.SetMovementDirection((int)_movementDirection);
 	}
 
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (_charAnimator.GetIsAttacking())
-		{
-			return;
-		}
+		//if (_charAnimator.GetIsAttacking())
+		//{
+		//	return;
+		//}
 
 		UpdateMovementInput();
 		UpdateMovementDirection();
@@ -129,16 +131,16 @@ public class EnemyMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (_charAnimator.GetIsAttacking())
-		{
-			return;
-		}
+		//if (_charAnimator.GetIsAttacking())
+		//{
+		//	return;
+		//}
 
-		_rigidBody.MovePosition(_rigidBody.position + _movementVelocity * Time.deltaTime);
+		//_rigidBody.MovePosition(_rigidBody.position + _movementVelocity * Time.deltaTime);
 
-		Vector2 lookDir = _mousePos - _rigidBody.position;
-		float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+		//Vector2 lookDir = _mousePos - _rigidBody.position;
+		//float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
-		_universalAttackBox.transform.localRotation = Quaternion.Euler(new Vector3(0f,0f,angle));
+		//_universalAttackBox.transform.localRotation = Quaternion.Euler(new Vector3(0f,0f,angle));
 	}
 }
