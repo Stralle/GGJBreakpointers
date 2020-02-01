@@ -10,7 +10,6 @@ public class EnemyMovementPhases : MonoBehaviour
 		public Transform[] points;
 	}
 
-	//Random movement
 	[SerializeField]
 	EnemyDecisionPoint[] _movementPoints = new EnemyDecisionPoint[0];
 	int _movementPhases = 0;
@@ -23,11 +22,16 @@ public class EnemyMovementPhases : MonoBehaviour
 	[SerializeField] 
 	float _movementSpeed = 5f;
 
+	//Components
+	SpriteRenderer _spriteRenderer = null;
+
 	// Start is called before the first frame update
 	void Start()
     {
 		_movementPhases = _movementPoints.Length;
 		Debug.Assert(_movementPhases > 0, "Missing Movement Points!");
+		_spriteRenderer = GetComponent<SpriteRenderer>();
+		Debug.Assert(_spriteRenderer, "Missing the Sprite Renderer Component!");
 	}
 
     // Update is called once per frame
@@ -64,6 +68,28 @@ public class EnemyMovementPhases : MonoBehaviour
 			int _randomPoint = UnityEngine.Random.Range(0, _movementPoints[_currentMovementPhase].points.Length);
 			_selectedPoint = _movementPoints[_currentMovementPhase].points[_randomPoint];
 			_isMoving = true;
+
+			//Update moving direction
+			CalculateMovingDirection();
+			
+		}
+	}
+
+	void CalculateMovingDirection()
+	{
+		if (_selectedPoint == null)
+		{
+			Debug.LogError("Selected Point is null!");
+			return;
+		}
+
+		if (_selectedPoint.position.x < transform.position.x)
+		{
+			_spriteRenderer.flipX = true;
+		}
+		else
+		{
+			_spriteRenderer.flipX = false;
 		}
 	}
 }

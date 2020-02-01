@@ -9,6 +9,7 @@ public enum MovementDirection
 	Down,
 	Left,
 	Right,
+	Invalid,
 	Count
 }
 
