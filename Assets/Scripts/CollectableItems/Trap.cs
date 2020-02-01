@@ -17,9 +17,6 @@ public class Trap : MonoBehaviour, IRepairable
     protected ETrapType _trapType = ETrapType.Invalid;
 
     [SerializeField]
-    protected Animator _animator = null;
-
-    [SerializeField]
     protected int _damageDealt = 0;
 
     [SerializeField] // TODO: _woodCost, _stoneCost, _metalCost
