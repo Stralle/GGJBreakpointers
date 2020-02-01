@@ -19,17 +19,17 @@ public class SceneLoader
 		switch (scene)
 		{
 			case Scenes.MainMenu:
-				SceneManager.LoadScene("StartGame", LoadSceneMode.Single);
+				SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 				break;
 			case Scenes.Game:
-				SceneManager.LoadScene("SampleScene01", LoadSceneMode.Single);
+				SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
 				break;
 			case Scenes.Results:
-				SceneManager.LoadScene("ResultsScene", LoadSceneMode.Single);
+				SceneManager.LoadScene("Results", LoadSceneMode.Single);
 				break;
 			default:
 				Debug.Assert(false);
-				SceneManager.LoadScene("StartGame", LoadSceneMode.Single);
+				SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 				break;
 		};
 	}

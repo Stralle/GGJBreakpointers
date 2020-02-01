@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameRulesManagerBase : MonoBehaviour, IGameRulesManager
+public class GameRulesManager : MonoBehaviour, IGameRulesManager
 {
 	public virtual void EndGame()
 	{

@@ -17,10 +17,15 @@ public class SettingsView : ViewBase
 
 	private void Start()
 	{
-		Debug.Assert(_playerName_input);
-		_playerName_input.onEndEdit.AddListener(SubmitName);
+		if (_playerName_input)
+		{
+			_playerName_input.onEndEdit.AddListener(SubmitName);
+		}
 
-		_soundButton.onClick.AddListener(() => ToggleSound());
+		if (_soundButton)
+		{
+			_soundButton.onClick.AddListener(() => ToggleSound());
+		}
 	}
 
 	private void SubmitName(string arg0)
@@ -61,13 +66,16 @@ public class SettingsView : ViewBase
 
 	public override void UpdateComponents()
 	{
-		bool isMuted = SoundManager.Instance.Mute;
-		string soundText = "Sound OFF";
-		if (isMuted)
+		if (_soundButton)
 		{
-			soundText = "Sound ON";
+			bool isMuted = SoundManager.Instance.Mute;
+			string soundText = "Sound OFF";
+			if (isMuted)
+			{
+				soundText = "Sound ON";
+			}
+			_soundButtonText.text = soundText;
 		}
-		_soundButtonText.text = soundText;
 
 		if (_playerName_value != null)
 		{

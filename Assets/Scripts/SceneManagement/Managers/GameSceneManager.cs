@@ -7,11 +7,11 @@ public class GameSceneManager : MonoBehaviour
 {
 	[SerializeField] PauseView _pauseView = null;
 	[SerializeField] IngameView _ingameView = null;
-	GameRulesManagerBase _gameRulesManager = null;
+	GameRulesManager _gameRulesManager = null;
 
 	private void Start()
 	{
-		_gameRulesManager = FindObjectOfType<GameRulesManagerBase>();
+		_gameRulesManager = FindObjectOfType<GameRulesManager>();
 		Debug.Assert(_gameRulesManager != null);
 		Debug.Assert(_pauseView && _ingameView);
 

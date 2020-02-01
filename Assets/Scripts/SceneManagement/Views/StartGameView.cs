@@ -9,14 +9,17 @@ public class StartGameView : ViewBase
 
 	public override void UpdateComponents()
 	{
-		if (Application.platform == RuntimePlatform.WindowsPlayer
-			|| Application.platform == RuntimePlatform.OSXPlayer)
+		if (_exit)
 		{
-			_exit.gameObject.SetActive(true);
-		}
-		else
-		{
-			_exit.gameObject.SetActive(false);
+			if (Application.platform == RuntimePlatform.WindowsPlayer
+				|| Application.platform == RuntimePlatform.OSXPlayer)
+			{
+				_exit.gameObject.SetActive(true);
+			}
+			else
+			{
+				_exit.gameObject.SetActive(false);
+			}
 		}
 	}
 }
