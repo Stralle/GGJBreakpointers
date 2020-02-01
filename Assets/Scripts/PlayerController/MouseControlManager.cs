@@ -28,7 +28,7 @@ namespace JamGame
 		// Update is called once per frame
 		void Update()
 		{
-			if (IsGameOnPause())
+			if (IsGameOnPause() && GameRulesManager.Instance.GamePhase == EGamePhase.Defend)
 			{
 				return;
 			}
