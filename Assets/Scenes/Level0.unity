@@ -5960,15 +5960,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3473301429839695096, guid: 3060bd2b67961ae44a2f7bf8d23a385e,
+        type: 3}
+      propertyPath: _brokenArrowSprite
+      value: 
+      objectReference: {fileID: -1340422233611357008, guid: b0b26a64e275cff06ba795211a2cae97,
+        type: 3}
+    - target: {fileID: 3473301429839695096, guid: 3060bd2b67961ae44a2f7bf8d23a385e,
+        type: 3}
+      propertyPath: _activeArrowSprite
+      value: 
+      objectReference: {fileID: 2504585558819262364, guid: b0b26a64e275cff06ba795211a2cae97,
+        type: 3}
     - target: {fileID: 7757564374668485773, guid: 3060bd2b67961ae44a2f7bf8d23a385e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.567406
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7757564374668485773, guid: 3060bd2b67961ae44a2f7bf8d23a385e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.94032645
+      value: 3.54
       objectReference: {fileID: 0}
     - target: {fileID: 7757564374668485773, guid: 3060bd2b67961ae44a2f7bf8d23a385e,
         type: 3}
@@ -6022,6 +6034,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3060bd2b67961ae44a2f7bf8d23a385e, type: 3}
+--- !u!1 &1846050125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3404904061571674418, guid: 3060bd2b67961ae44a2f7bf8d23a385e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846050124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1846050126
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846050125}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2024308091
 GameObject:
   m_ObjectHideFlags: 0
