@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : GenericSingletonClass<SoundManager>
+public class SoundManager : Singleton<SoundManager>
 {
 	[SerializeField] AudioSource OneTimeAudioSourcePrefab = null;
 	[SerializeField] AudioSource LoopAudioSourcePrefab = null;

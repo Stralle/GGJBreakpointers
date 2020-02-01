@@ -9,7 +9,7 @@ public interface LazyInitialized
 }
 
 // explained here: http://www.unitygeek.com/unity_c_singleton/
-public class GenericSingletonClass<T> : MonoBehaviour, LazyInitialized where T : Component, LazyInitialized
+public class Singleton<T> : MonoBehaviour, LazyInitialized where T : Component, LazyInitialized
 {
 	private static T instance;
 	public static T Instance
@@ -36,7 +36,7 @@ public class GenericSingletonClass<T> : MonoBehaviour, LazyInitialized where T :
 		}
 	}
 
-	public static bool CheckIfHaveInstanse() { return instance != null || FindObjectOfType<T>() != null; }
+	public static bool CheckIfHaveInstance() { return instance != null || FindObjectOfType<T>() != null; }
 
 	// to make singleton work inside one scene
 	[SerializeField] bool _singleton_setDoNotDestroyOnLoad = true;

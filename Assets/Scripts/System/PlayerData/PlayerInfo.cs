@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class PlayerInfo : GenericSingletonClass<PlayerInfo>
+public class PlayerInfo : Singleton<PlayerInfo>
 {
 	private bool _initialized = false;
 
