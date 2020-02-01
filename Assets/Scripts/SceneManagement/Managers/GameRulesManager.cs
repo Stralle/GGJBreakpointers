@@ -14,6 +14,7 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	public EGamePhase GamePhase => _gamePhase;
 
 	float _timer = 0f;
+	public float Timer => _timer;
 	public float TIME_OF_REPARE_PHASE = 30f;
 
 	int[] _itemsCollected;
@@ -24,7 +25,7 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 
 		_timer = TIME_OF_REPARE_PHASE;
 
-		Debug.Assert(_doNotDestroyOnLoad, "Manager should be destroyed on Load");
+		Debug.Assert(!_doNotDestroyOnLoad, "Manager should be destroyed on Load");
 		_itemsCollected = new int[(int)EResourceType.Size];
 		for (int i = 0; i < (int)EResourceType.Size; i++)
 		{
@@ -48,6 +49,15 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	{
 		_itemsCollected[(int)type] += amount;
 	}
+
+    public void ResourcesSpent(EResourceType type, int amount)
+    {
+        if (_itemsCollected[(int)type] >= amount)
+        {
+            _itemsCollected[(int)type] -= amount;
+        }
+        Debug.Log("Not enough resources of type " + type.ToString());
+    }
 
 	// place to run the whole logic of switching phase
 	void GoToTheSecondStage()

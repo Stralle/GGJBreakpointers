@@ -40,6 +40,8 @@ namespace JamGame
 					Debug.Log("MouseControlManager: hit target: " + hit.collider.name);
 
 					InteractablePart interactable = hit.collider.gameObject.GetComponent<InteractablePart>();
+					Trap trap = hit.collider.gameObject.GetComponent<Trap>();
+
 					if (interactable != null)
 					{
 						IDestructible destructible = interactable.GetMainGameObject().GetComponent<Loot>() as IDestructible;
@@ -47,6 +49,10 @@ namespace JamGame
 						{
 							destructible.DestroyAndGetResources();
 						}
+					}
+					else if (trap != null)
+					{
+						trap.PlayerInteract();
 					}
 				}
 			}

@@ -14,6 +14,9 @@ public class Loot : MonoBehaviour, IDestructible
 
 	[SerializeField] Animator _animator = null;
 
+    [SerializeField]
+    int _junkNumber = 0;
+
 	bool _isDestroyed = false;
 
 	private void Awake()
@@ -31,7 +34,7 @@ public class Loot : MonoBehaviour, IDestructible
 
 		_isDestroyed = true;
 
-		GameRulesManager.Instance.ResourcesCollected(EResourceType.Junk, 1);
+		GameRulesManager.Instance.ResourcesCollected(EResourceType.Junk, _junkNumber);
 
 		// it will remove object after playing the animation in DestroyStateBehavior
 		_animator.SetTrigger("Destroy");
