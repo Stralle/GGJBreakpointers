@@ -26,7 +26,7 @@ public class EnemyBase : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionExit(Collision collision)
+	private void OnCollisionEnter2D(Collision collision)
 	{
 		// todo::get dumage from trap and apply it
 		TakeDamage(100);
@@ -38,9 +38,15 @@ public class EnemyBase : MonoBehaviour
 		_animator = GetComponent<Animator>();
 	}
 
-	public void SetMovementPath()
+	public void SetMovementPath(EnemyDecisionPoint[] _movementPhases)
 	{
-		// todo: set path for the enemy
+		EnemyMovementPhases _movementPhasesComponent = GetComponent<EnemyMovementPhases>();
+		Debug.Assert(_movementPhasesComponent, "The enemy is missing EnemyMovementPhases Component");
+		if (_movementPhasesComponent == null)
+		{
+			return;
+		}
+		_movementPhasesComponent.SetMovementPoints(_movementPhases);
 	}
 
 	public void SetInitialPosition(Vector2 pos)

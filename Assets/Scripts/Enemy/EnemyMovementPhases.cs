@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementPhases : MonoBehaviour
-{
 	[System.Serializable]
-	public struct EnemyDecisionPoint
+	public class EnemyDecisionPoint
 	{
 		public Transform[] points;
 	}
 
-	[SerializeField]
+public class EnemyMovementPhases : MonoBehaviour
+{
 	EnemyDecisionPoint[] _movementPoints = new EnemyDecisionPoint[0];
 	int _movementPhases = 0;
 	int _currentMovementPhase = -1;
@@ -24,15 +23,6 @@ public class EnemyMovementPhases : MonoBehaviour
 
 	//Components
 	SpriteRenderer _spriteRenderer = null;
-
-	// Start is called before the first frame update
-	void Start()
-    {
-		_movementPhases = _movementPoints.Length;
-		Debug.Assert(_movementPhases > 0, "Missing Movement Points!");
-		_spriteRenderer = GetComponent<SpriteRenderer>();
-		Debug.Assert(_spriteRenderer, "Missing the Sprite Renderer Component!");
-	}
 
     // Update is called once per frame
     void Update()
@@ -91,5 +81,19 @@ public class EnemyMovementPhases : MonoBehaviour
 		{
 			_spriteRenderer.flipX = false;
 		}
+	}
+
+	public void SetMovementPoints(EnemyDecisionPoint[] _decisionPoints)
+	{
+		_movementPoints = _decisionPoints;
+		Init();
+	}
+
+	private void Init()
+	{
+		_movementPhases = _movementPoints.Length;
+		Debug.Assert(_movementPhases > 0, "Missing Movement Points!");
+		_spriteRenderer = GetComponent<SpriteRenderer>();
+		Debug.Assert(_spriteRenderer, "Missing the Sprite Renderer Component!");
 	}
 }
