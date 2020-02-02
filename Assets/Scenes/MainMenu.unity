@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TUTORIAL
+  m_text: PLAY INTRO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13516ff917ffc154cadaaa737efbd22e, type: 2}
   m_sharedMaterial: {fileID: -7173276764844427457, guid: 13516ff917ffc154cadaaa737efbd22e,
@@ -1569,10 +1569,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1856812690}
-    characterCount: 8
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
