@@ -433,8 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapType: 1
-  _damageDealt: 0
-  _junkCost: 0
+  _damageDealt: 25
+  _junkCost: 10
   _isRepaired: 0
   _isActive: 0
   _brokenArrowSprite: {fileID: 0}
