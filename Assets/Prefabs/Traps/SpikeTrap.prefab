@@ -327,8 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapType: 0
-  _damageDealt: 20
-  _junkCost: 10
+  _damageDealt: 0
+  _junkCost: 0
   _isRepaired: 1
   _isActive: 1
   _canvas: {fileID: 5847391771256162507}

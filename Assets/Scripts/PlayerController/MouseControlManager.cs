@@ -11,6 +11,17 @@ public class MouseControlManager : Singleton<MouseControlManager>
 	[SerializeField]
 	float _cameraMoveSpeed = 5.0f;
 	float groundZ = 0;
+	bool _isSecondPhaseActive = false;
+
+	private void Start()
+	{
+		GameRulesManager.Instance.OnStartSecondPhase += OnSecondPhaseStart;
+	}
+
+	private void OnSecondPhaseStart()
+	{
+		_isSecondPhaseActive = true;
+	}
 
 	// add subscription for event if camera changes
 	public Camera GetActiveCamera()
@@ -34,11 +45,11 @@ public class MouseControlManager : Singleton<MouseControlManager>
 
 		//-----------  Camera movement logic
 		//The camera is moving with the right mouse button
-		if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && _isSecondPhaseActive)
 		{
 			moveStartPosition = GetWorldPosition(groundZ);
 		}
-		if (Input.GetMouseButton(1) || Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButton(0) && _isSecondPhaseActive)
 		{
 			Camera activeCamera = GetActiveCamera();
 			Vector3 direction = moveStartPosition - GetWorldPosition(groundZ);
