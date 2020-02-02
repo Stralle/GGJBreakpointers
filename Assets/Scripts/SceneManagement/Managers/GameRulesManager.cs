@@ -21,6 +21,12 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	// subscription for starting second phase
 	public event Action OnStartSecondPhase = delegate {};
 
+	public event Action OnNewTrapLocated = delegate { };
+	public event Action OnTrapLost = delegate { };
+
+	Trap _activeTrap = null;
+	public Trap ActiveTrap => _activeTrap;
+
 	int[] _itemsCollected;
 
 	private void Start()
@@ -74,6 +80,18 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 		_gamePhase = EGamePhase.Defend;
 
 		OnStartSecondPhase.Invoke();
+	}
+
+	public void OnTrapFound(Trap trap)
+	{
+		_activeTrap = trap;
+		OnNewTrapLocated.Invoke();
+	}
+
+	public void OnTrapUnreachable()
+	{
+		_activeTrap = null;
+		OnTrapLost.Invoke();
 	}
 
 	public virtual void EndGame()

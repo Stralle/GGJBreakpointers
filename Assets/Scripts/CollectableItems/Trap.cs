@@ -21,8 +21,9 @@ public class Trap : MonoBehaviour, IRepairable
 
     [SerializeField] // TODO: _woodCost, _stoneCost, _metalCost
     protected int _junkCost = 0;
+	public int JunkCost => _junkCost;
 
-    [SerializeField]
+	[SerializeField]
     protected bool _isRepaired = false;
     [SerializeField]
     protected bool _isActive = false;
@@ -62,6 +63,8 @@ public class Trap : MonoBehaviour, IRepairable
 		{
 			RepairAndSpendResources();
 		}
+
+		GameRulesManager.Instance.OnTrapFound(this);
 	}
 
     public void SetUIFeedbackActive(bool _setActive)
@@ -71,6 +74,15 @@ public class Trap : MonoBehaviour, IRepairable
             Debug.LogError("The canvas is missing!");
             return;
         }
+
+		if (_setActive)
+		{
+			GameRulesManager.Instance.OnTrapFound(this);
+		}
+		else
+		{
+			GameRulesManager.Instance.OnTrapUnreachable();
+		}
 
         _canvas.SetActive(_setActive);
     }
