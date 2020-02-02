@@ -4872,8 +4872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb0d4362c9b441508701d20e5248377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doNotDestroyOnLoad: 1
-  TIME_OF_REPARE_PHASE: 30
+  _doNotDestroyOnLoad: 0
+  TIME_OF_REPARE_PHASE: 35
   LEVEL: 1
 --- !u!4 &883267945
 Transform:
@@ -6157,17 +6157,17 @@ PrefabInstance:
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9245283
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805807, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}

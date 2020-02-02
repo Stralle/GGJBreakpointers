@@ -329,8 +329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trapType: 0
   _repareEffect: {fileID: 5516921194640418303}
-  _damageDealt: 0
-  _junkCost: 0
+  _damageDealt: 25
+  _junkCost: 10
   _isRepaired: 1
   _isActive: 1
   _canvas: {fileID: 5847391771256162507}
