@@ -34,11 +34,11 @@ public class MouseControlManager : Singleton<MouseControlManager>
 
 		//-----------  Camera movement logic
 		//The camera is moving with the right mouse button
-		if (Input.GetMouseButtonDown(1))
+		if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0))
 		{
 			moveStartPosition = GetWorldPosition(groundZ);
 		}
-		if (Input.GetMouseButton(1))
+		if (Input.GetMouseButton(1) || Input.GetMouseButtonDown(0))
 		{
 			Camera activeCamera = GetActiveCamera();
 			Vector3 direction = moveStartPosition - GetWorldPosition(groundZ);
