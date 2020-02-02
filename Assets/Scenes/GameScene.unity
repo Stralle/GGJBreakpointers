@@ -4193,12 +4193,12 @@ PrefabInstance:
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.033018887
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.033018887
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805807, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
@@ -4289,7 +4289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
-  TIME_OF_REPARE_PHASE: 5
+  TIME_OF_REPARE_PHASE: 30
 --- !u!4 &1243671118
 Transform:
   m_ObjectHideFlags: 0
@@ -10087,12 +10087,12 @@ PrefabInstance:
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805807, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
@@ -10186,17 +10186,17 @@ PrefabInstance:
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9245283
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805806, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235552496977805807, guid: b737c7fa776b4494eb9cc3c9aacc9d88,
         type: 3}
@@ -10632,5 +10632,10 @@ PrefabInstance:
       propertyPath: _enemySpawner
       value: 
       objectReference: {fileID: 675119776}
+    - target: {fileID: 8685214759512731619, guid: d4febaf14bd770b4ab0cbfd65a1d8160,
+        type: 3}
+      propertyPath: TIME_OF_REPARE_PHASE
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4febaf14bd770b4ab0cbfd65a1d8160, type: 3}
