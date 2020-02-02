@@ -11,6 +11,7 @@ public enum EEnemyType
 public class EnemyBase : MonoBehaviour
 {
 	[SerializeField] ParticleSystem _onHitEffect;
+	[SerializeField] ParticleSystem _onWinEffect;
 
 	[SerializeField] int _health = 1;
 	public int Health => _health;
@@ -84,6 +85,9 @@ public class EnemyBase : MonoBehaviour
 
 	public void SetIsAWinner()
 	{
+		_onWinEffect.gameObject.SetActive(true);
+		_onWinEffect.Play();
+
 		_animator.SetTrigger("isWinner");
 		//GameRulesManager.Instance.EndGame();
 	}
@@ -94,7 +98,10 @@ public class EnemyBase : MonoBehaviour
 		_animator = GetComponent<Animator>();
 
 		Debug.Assert(_onHitEffect != null, "Attach particles to the enemy!");
-		_onHitEffect.gameObject.SetActive(true);
+		_onHitEffect.gameObject.SetActive(false);
+
+		Debug.Assert(_onWinEffect != null, "Attach particles to the enemy!");
+		_onWinEffect.gameObject.SetActive(false);
 	}
 
 	public void SetMovementPath(EnemyDecisionPoint[] _movementPhases)
