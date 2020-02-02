@@ -21,12 +21,19 @@ public class EnemyMovementPhases : MonoBehaviour
 	[SerializeField] 
 	float _movementSpeed = 5f;
 
+	bool _isDead = false;
+
 	//Components
 	SpriteRenderer _spriteRenderer = null;
 
     // Update is called once per frame
     void Update()
     {
+		if (_isDead)
+		{
+			return;
+		}
+
 		UpdateMovement();
     }
 
@@ -53,7 +60,7 @@ public class EnemyMovementPhases : MonoBehaviour
 			++_currentMovementPhase;
 			if (_currentMovementPhase > _movementPhases - 1)
 			{
-				GameRulesManager.Instance.EndGame();
+				GetComponent<EnemyBase>().SetIsAWinner();
 				return;
 			}
 			int _randomPoint = UnityEngine.Random.Range(0, _movementPoints[_currentMovementPhase].points.Length);
@@ -82,6 +89,11 @@ public class EnemyMovementPhases : MonoBehaviour
 		{
 			_spriteRenderer.flipX = false;
 		}
+	}
+
+	public void SetIsDead()
+	{
+		_isDead = true;
 	}
 
 	public void SetMovementPoints(EnemyDecisionPoint[] _decisionPoints)
