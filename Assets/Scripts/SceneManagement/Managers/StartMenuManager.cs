@@ -31,6 +31,11 @@ public class StartMenuManager : MonoBehaviour
 		Application.Quit();
 	}
 
+	public void PlayTutor()
+	{
+		SceneLoader.LoadScene(SceneLoader.Scenes.Tutorial);
+	}
+
 
 	public void StartGame()
 	{
