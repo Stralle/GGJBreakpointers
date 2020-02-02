@@ -16,7 +16,7 @@ public class CharacterMovement : MonoBehaviour
 	float _vertInput;
 	MovementDirection _movementDirection;
 
-	Vector2 _mousePos;
+	bool _canMove = true;
 
 	// Start is called before the first frame update
 	void Start()
@@ -24,6 +24,8 @@ public class CharacterMovement : MonoBehaviour
 		_rigidBody = GetComponent<Rigidbody2D>();
 		Debug.Assert(_rigidBody, "Missing the Rigidbody2D Component");
 		Debug.Assert(_charAnimator, "_charAnimator not set!");
+
+		GameRulesManager.Instance.OnOneSecondLeft += OnOneSecondLeft;
 	}
 
 	void UpdateMovementInput()
@@ -35,6 +37,18 @@ public class CharacterMovement : MonoBehaviour
 		_movementVelocity = _movementInput.normalized * _movementSpeed;
 
 		_charAnimator.SetMovementInputValue(_movementInput);
+	}
+
+	void OnOneSecondLeft()
+	{
+		_canMove = false;
+		// Reseting the input since it won't be updated anymore after this
+		_movementVelocity = Vector2.zero;
+		_horzInput = 0;
+		_vertInput = 0;
+		_movementInput = Vector2.zero;
+		_charAnimator.SetMovementInputValue(_movementInput);
+		_charAnimator.OnOneSecondLeft();
 	}
 
 	void UpdateMovementDirection()
@@ -67,8 +81,11 @@ public class CharacterMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		UpdateMovementInput();
-		UpdateMovementDirection();
+		if (_canMove)
+		{
+			UpdateMovementInput();
+			UpdateMovementDirection();
+		}
 	}
 
 	private void FixedUpdate()

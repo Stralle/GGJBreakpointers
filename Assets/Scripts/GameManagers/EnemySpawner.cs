@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
 		EnemyBase enemy = Instantiate(_enemyPrefab);
 		enemy.SetInitialPosition(new Vector2(_positionToSpawn.position.x, _positionToSpawn.position.y));
 		enemy.SetMovementPath(_movementPoints);
+		GameRulesManager.Instance.OnEnemySpawned(enemy);
 	}
 
 	private void OnSecondPhaseStart()

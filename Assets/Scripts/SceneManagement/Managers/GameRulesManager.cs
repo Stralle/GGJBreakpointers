@@ -20,6 +20,10 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 
 	// subscription for starting second phase
 	public event Action OnStartSecondPhase = delegate {};
+	//Triggers when the time goes bellow 1 second
+	public event Action OnOneSecondLeft = delegate {};
+	//Event called when the knight is spawned
+	public event Action<EnemyBase> OnKnightSpawned = delegate { };
 
 	int[] _itemsCollected;
 
@@ -42,7 +46,11 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 		if (GamePhase == EGamePhase.Repare)
 		{
 			_timer -= Time.deltaTime;
-			if (_timer < 0)
+			if (_timer > 0 && _timer < 1.0f)
+			{
+				OnOneSecondLeft.Invoke();
+			}
+			else if (_timer < 0)
 			{
 				GoToTheSecondStage();
 			}
@@ -85,5 +93,10 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	public virtual void ReturnToMenu()
 	{
 		SceneLoader.LoadScene(SceneLoader.Scenes.MainMenu);
+	}
+
+	public void OnEnemySpawned(EnemyBase enemy)
+	{
+		OnKnightSpawned.Invoke(enemy);
 	}
 }

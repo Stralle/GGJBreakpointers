@@ -7,8 +7,6 @@ public class CharacterAnimator : MonoBehaviour
 {
     Animator _animator = null;
 
-    public event Action<bool> OnAttackStateChangedEvent = delegate { };
-
     private bool isFacingRight = true;
 
     public void SetMovementInputValue(Vector2 movementInput)
@@ -36,6 +34,11 @@ public class CharacterAnimator : MonoBehaviour
         }
 
         _animator.SetBool("IsMoving", isMoving);
+    }
+
+    public void OnOneSecondLeft()
+    {
+        _animator.SetTrigger("TriggerEscape");
     }
 
     // Start is called before the first frame update
