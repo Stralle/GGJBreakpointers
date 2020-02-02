@@ -7,6 +7,13 @@ public class CharacterInteractor : MonoBehaviour
     bool _isInteractingWithTrap = false;
     [SerializeField]
     Trap _selectedTrap = null;
+    Animator _animator = null;
+
+    private void Start()
+    {
+        _animator = GetComponentInChildren<Animator>();
+        Debug.Assert(_animator, "Can't find animator!");
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +24,10 @@ public class CharacterInteractor : MonoBehaviour
             IDestructible destructible = _resource.GetMainGameObject().GetComponent<Loot>() as IDestructible;
             if (destructible != null)
             {
-                destructible.DestroyAndGetResources();
+                if(destructible.DestroyAndGetResources())
+                {
+                    _animator.SetTrigger("TriggerSmash");
+                }
             }
         }
         if (_trap != null)
@@ -39,7 +49,6 @@ public class CharacterInteractor : MonoBehaviour
             {
                 _selectedTrap = _trap;
             }
-
 
             _trap.SetUIFeedbackActive(true);
         }
@@ -66,7 +75,10 @@ public class CharacterInteractor : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _selectedTrap.PlayerInteract();
+                if(_selectedTrap.PlayerInteract())
+                {
+                    _animator.SetTrigger("TriggerSmash");
+                }
             }
         }
     }

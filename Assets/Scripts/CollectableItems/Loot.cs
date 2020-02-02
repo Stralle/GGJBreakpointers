@@ -25,11 +25,11 @@ public class Loot : MonoBehaviour, IDestructible
 		_animator.SetInteger("ItemType", (int)_destructibleType);
 	}
 
-	public void DestroyAndGetResources()
+	public bool DestroyAndGetResources()
 	{
 		if (_isDestroyed)
 		{
-			return;
+			return false;
 		}
 
 		_isDestroyed = true;
@@ -38,6 +38,7 @@ public class Loot : MonoBehaviour, IDestructible
 
 		// it will remove object after playing the animation in DestroyStateBehavior
 		_animator.SetTrigger("Destroy");
+		return true;
 	}
 
 	public EDestructibleType GetDestructibleType()

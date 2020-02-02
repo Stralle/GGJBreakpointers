@@ -53,18 +53,21 @@ public class Trap : MonoBehaviour, IRepairable
 		return _junkCost <= GameRulesManager.Instance.GetAmountOfResources(EResourceType.Junk);
 	}
 
-	public void PlayerInteract()
+	public bool PlayerInteract()
 	{
 		if (IsRepaired)
 		{
 			DestroyAndReceiveResources();
+            return true;
 		}
 		else if (!IsRepaired && CanBeRepared())
 		{
 			RepairAndSpendResources();
+            return true;
 		}
 
 		GameRulesManager.Instance.OnTrapFound(this);
+        return false;
 	}
 
     public void SetUIFeedbackActive(bool _setActive)

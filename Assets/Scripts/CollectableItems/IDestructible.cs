@@ -12,7 +12,7 @@ public enum EDestructibleType
 public interface IDestructible
 {
 	EDestructibleType GetDestructibleType();
-	void DestroyAndGetResources();
+	bool DestroyAndGetResources();
 
 	void DestroyByEnemy();
 }
