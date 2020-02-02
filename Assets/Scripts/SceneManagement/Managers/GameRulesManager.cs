@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,11 +14,12 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	private EGamePhase _gamePhase = EGamePhase.Repare;
 	public EGamePhase GamePhase => _gamePhase;
 
-	[SerializeField] EnemySpawner _enemySpawner = null;
-
 	float _timer = 0f;
 	public float Timer => _timer;
 	public float TIME_OF_REPARE_PHASE = 30f;
+
+	// subscription for starting second phase
+	public event Action OnStartSecondPhase = delegate {};
 
 	int[] _itemsCollected;
 
@@ -71,10 +73,7 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	{
 		_gamePhase = EGamePhase.Defend;
 
-		if (_enemySpawner)
-		{
-			_enemySpawner.SpawnEnemy();
-		}
+		OnStartSecondPhase.Invoke();
 	}
 
 	public virtual void EndGame()

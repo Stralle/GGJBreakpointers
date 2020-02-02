@@ -16,7 +16,13 @@ public class EnemySpawner : MonoBehaviour
 		enemy.SetMovementPath(_movementPoints);
 	}
 
+	private void OnSecondPhaseStart()
+	{
+		SpawnEnemy();
+	}
+
 	private void Start()
 	{
+		GameRulesManager.Instance.OnStartSecondPhase += OnSecondPhaseStart;
 	}
 }
