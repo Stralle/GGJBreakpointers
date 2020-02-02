@@ -10,6 +10,8 @@ public enum EEnemyType
 
 public class EnemyBase : MonoBehaviour
 {
+	[SerializeField] ParticleSystem _onHitEffect;
+
 	[SerializeField] int _health = 1;
 	public int Health => _health;
 
@@ -19,6 +21,9 @@ public class EnemyBase : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
+		_onHitEffect.gameObject.SetActive(true);
+		_onHitEffect.Play();
+
 		_health -= damage;
 
 		if (Health <= 0)
@@ -87,6 +92,9 @@ public class EnemyBase : MonoBehaviour
 	void Start()
 	{
 		_animator = GetComponent<Animator>();
+
+		Debug.Assert(_onHitEffect != null, "Attach particles to the enemy!");
+		_onHitEffect.gameObject.SetActive(true);
 	}
 
 	public void SetMovementPath(EnemyDecisionPoint[] _movementPhases)
