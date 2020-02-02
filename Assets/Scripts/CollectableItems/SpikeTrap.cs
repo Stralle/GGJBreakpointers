@@ -11,8 +11,10 @@ public class SpikeTrap : Trap
 
     SpriteRenderer _spriteRendererComponent = null;
 
-    private void Start()
+    override protected void Start()
     {
+        base.Start();
+
         _spriteRendererComponent = GetComponent<SpriteRenderer>();
         Debug.Assert(_spriteRendererComponent, "Missing sprite renderer.");
 

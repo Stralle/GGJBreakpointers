@@ -100,6 +100,7 @@ MonoBehaviour:
   _junkCost: 0
   _isRepaired: 0
   _isActive: 0
+  _canvas: {fileID: 5406410932649678218}
   _brokenBuzzSawSprite: {fileID: -1514408079742910434, guid: 4e0436e01232bc3e4af789a3cdd48451,
     type: 3}
   _activeBuzzSawSprite: {fileID: -6468439556035257990, guid: 4e0436e01232bc3e4af789a3cdd48451,
