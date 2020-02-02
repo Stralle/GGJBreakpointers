@@ -16,7 +16,7 @@ public class ResultsSceneManager : MonoBehaviour
 	public void RestartGame()
 	{
 		//SoundManager.Instance.PlayButtonPressedSound();
-		SceneLoader.LoadScene(SceneLoader.Scenes.Game);
+		SceneLoader.LoadScene(SceneLoader.Scenes.GameLevel1);
 	}
 
 	public void ExitToMenu()

@@ -28,6 +28,8 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	public event Action OnNewTrapLocated = delegate { };
 	public event Action OnTrapLost = delegate { };
 
+	[SerializeField] int LEVEL = 0;
+
 	Trap _activeTrap = null;
 	public Trap ActiveTrap => _activeTrap;
 
@@ -106,6 +108,19 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	{
 		// todo:: add save of the results
 		SceneLoader.LoadScene(SceneLoader.Scenes.Results);
+	}
+
+	public virtual void GoToNextLevel()
+	{
+
+		if (LEVEL == 0)
+		{
+			SceneLoader.LoadScene(SceneLoader.Scenes.GameLevel2);
+		}
+		else
+		{
+			SceneLoader.LoadScene(SceneLoader.Scenes.Results);
+		}
 	}
 
 	public virtual void ReturnToMenu()
