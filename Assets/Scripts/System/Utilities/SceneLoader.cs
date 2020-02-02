@@ -10,7 +10,8 @@ public class SceneLoader
 		MainMenu,
 		GameLevel1,
 		GameLevel2,
-		Results
+		Results,
+		Tutorial
 	}
 
 	static public void LoadScene(Scenes scene)
@@ -30,6 +31,9 @@ public class SceneLoader
 				break;
 			case Scenes.Results:
 				SceneManager.LoadScene("Results", LoadSceneMode.Single);
+				break;
+			case Scenes.Tutorial:
+				SceneManager.LoadScene("OpeningScene", LoadSceneMode.Single);
 				break;
 			default:
 				Debug.Assert(false);
