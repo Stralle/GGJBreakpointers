@@ -4314,7 +4314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
-  TIME_OF_REPARE_PHASE: 20
+  TIME_OF_REPARE_PHASE: 23
   LEVEL: 0
 --- !u!4 &1243671118
 Transform:
@@ -10782,7 +10782,7 @@ PrefabInstance:
     - target: {fileID: 8685214759512731619, guid: d4febaf14bd770b4ab0cbfd65a1d8160,
         type: 3}
       propertyPath: TIME_OF_REPARE_PHASE
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4febaf14bd770b4ab0cbfd65a1d8160, type: 3}
