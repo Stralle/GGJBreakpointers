@@ -8,7 +8,8 @@ public class SceneLoader
 	public enum Scenes
 	{
 		MainMenu,
-		Game,
+		GameLevel1,
+		GameLevel2,
 		Results
 	}
 
@@ -21,8 +22,11 @@ public class SceneLoader
 			case Scenes.MainMenu:
 				SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 				break;
-			case Scenes.Game:
+			case Scenes.GameLevel1:
 				SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+				break;
+			case Scenes.GameLevel2:
+				SceneManager.LoadScene("Level1_1", LoadSceneMode.Single);
 				break;
 			case Scenes.Results:
 				SceneManager.LoadScene("Results", LoadSceneMode.Single);

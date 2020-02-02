@@ -35,7 +35,7 @@ public class StartMenuManager : MonoBehaviour
 	public void StartGame()
 	{
 		//SoundManager.Instance.PlayButtonPressedSound();
-		SceneLoader.LoadScene(SceneLoader.Scenes.Game);
+		SceneLoader.LoadScene(SceneLoader.Scenes.GameLevel1);
 	}
 
 	// SettingsView interaction
