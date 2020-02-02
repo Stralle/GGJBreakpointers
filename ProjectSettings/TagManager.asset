@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 2567283195
     locked: 0
+  - name: Walls
+    uniqueID: 406341531
+    locked: 0
   - name: Interactable
     uniqueID: 4081515785
     locked: 0
@@ -52,4 +55,7 @@ TagManager:
     locked: 0
   - name: TrapL1
     uniqueID: 3411583499
+    locked: 0
+  - name: UI
+    uniqueID: 3664406043
     locked: 0

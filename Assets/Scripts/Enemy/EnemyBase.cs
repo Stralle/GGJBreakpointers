@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public enum EEnemyType
 
 public class EnemyBase : MonoBehaviour
 {
-	[SerializeField] int _health = 100;
+	[SerializeField] int _health = 1;
 	public int Health => _health;
 
 	Animator _animator = null;
@@ -22,10 +23,18 @@ public class EnemyBase : MonoBehaviour
 
 		if (Health <= 0)
 		{
+			// object will be destroyed after anim
 			_animator.SetTrigger("isDead");
-			Destroy(gameObject);
+
+			EnemyMovementPhases movementPhasesComponent = GetComponent<EnemyMovementPhases>();
+			Debug.Assert(movementPhasesComponent, "The enemy is missing EnemyMovementPhases Component");
+			if (movementPhasesComponent != null)
+			{
+				movementPhasesComponent.SetIsDead();
+			}
 		}
 	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		Debug.Log("EnemyBAse: OnTriggerEnter2D");
@@ -33,7 +42,7 @@ public class EnemyBase : MonoBehaviour
 		Trap trap = collision.GetComponent<Trap>();
 		if (trap && trap.CanDealDamage())
 		{
-			TakeDamage(100);
+			TakeDamage(trap.DamageDealt);
 		}
 
 		InteractablePart interactible = collision.GetComponent<InteractablePart>();
@@ -54,7 +63,7 @@ public class EnemyBase : MonoBehaviour
 		Trap trap = collision.gameObject.GetComponent<Trap>();
 		if (trap && trap.CanDealDamage())
 		{
-			TakeDamage(100);
+			TakeDamage(trap.DamageDealt);
 		}
 
 		InteractablePart interactible = collision.gameObject.GetComponent<InteractablePart>();
@@ -66,6 +75,12 @@ public class EnemyBase : MonoBehaviour
 				loot.DestroyByEnemy();
 			}
 		}
+	}
+
+	public void SetIsAWinner()
+	{
+		_animator.SetTrigger("isWinner");
+		//GameRulesManager.Instance.EndGame();
 	}
 
 	// Start is called before the first frame update

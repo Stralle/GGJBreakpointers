@@ -46,7 +46,7 @@ public class Trap : MonoBehaviour, IRepairable
 
 	public virtual bool CanBeRepared()
 	{
-		return _junkCost >= GameRulesManager.Instance.GetAmountOfResources(EResourceType.Junk);
+		return _junkCost <= GameRulesManager.Instance.GetAmountOfResources(EResourceType.Junk);
 	}
 
 	public void PlayerInteract()

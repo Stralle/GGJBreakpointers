@@ -63,15 +63,15 @@ public class MouseControlManager : Singleton<MouseControlManager>
 				InteractablePart interactable = hit.collider.gameObject.GetComponent<InteractablePart>();
 				Trap trap = hit.collider.gameObject.GetComponent<Trap>();
 
-				if (interactable != null)
-				{
-					IDestructible destructible = interactable.GetMainGameObject().GetComponent<Loot>() as IDestructible;
-					if (destructible != null)
-					{
-						destructible.DestroyAndGetResources();
-					}
-				}
-				else if (trap != null)
+				//if (interactable != null)
+				//{
+				//	IDestructible destructible = interactable.GetMainGameObject().GetComponent<Loot>() as IDestructible;
+				//	if (destructible != null)
+				//	{
+				//		destructible.DestroyAndGetResources();
+				//	}
+				//}
+				if (trap != null)
 				{
 					trap.PlayerInteract();
 				}
