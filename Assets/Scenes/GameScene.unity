@@ -7899,6 +7899,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3814151287716272236, guid: 12cf96307cb3bb143889d964b8cb9f28,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3814151288126219123, guid: 12cf96307cb3bb143889d964b8cb9f28,
         type: 3}
       propertyPath: m_Offset.x
@@ -8222,6 +8227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 15251394072441465, guid: 9210908ec09b9486ba06d5a0372c48a1,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 15251394072441466, guid: 9210908ec09b9486ba06d5a0372c48a1,
         type: 3}
