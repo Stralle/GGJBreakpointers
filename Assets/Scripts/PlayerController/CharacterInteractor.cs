@@ -24,14 +24,22 @@ public class CharacterInteractor : MonoBehaviour
         {
             _isInteractingWithTrap = true;
             //Select the closest trap
-            float distanceToCurrentTrap = Vector2.Distance(_selectedTrap.transform.position, gameObject.transform.position);
-            float distanceToNewTrap = Vector2.Distance(_trap.transform.position, gameObject.transform.position);
-            if (distanceToNewTrap < distanceToCurrentTrap)
+            if (_selectedTrap)
             {
-                //The new trap is the closest one now, select it and deselect the old one
-                _selectedTrap = _trap;
-
+                float distanceToCurrentTrap = Vector2.Distance(_selectedTrap.transform.position, gameObject.transform.position);
+                float distanceToNewTrap = Vector2.Distance(_trap.transform.position, gameObject.transform.position);
+                if (distanceToNewTrap < distanceToCurrentTrap)
+                {
+                    //The new trap is the closest one now, select it and deselect the old one
+                    DeselectTrap(_selectedTrap);
+                    _selectedTrap = _trap;
+                }
             }
+            else
+            {
+                _selectedTrap = _trap;
+            }
+
 
             _trap.SetUIFeedbackActive(true);
         }
