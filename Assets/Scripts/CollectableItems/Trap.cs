@@ -16,6 +16,8 @@ public class Trap : MonoBehaviour, IRepairable
     [SerializeField]
     protected ETrapType _trapType = ETrapType.Invalid;
 
+	[SerializeField] ParticleSystem _repareEffect = null;
+
     [SerializeField]
     protected int _damageDealt = 0;
 
@@ -55,18 +57,27 @@ public class Trap : MonoBehaviour, IRepairable
 
 	public bool PlayerInteract()
 	{
+		GameRulesManager.Instance.OnTrapFound(this);
+
 		if (IsRepaired)
 		{
 			DestroyAndReceiveResources();
-            return true;
+			if (_repareEffect)
+			{
+				_repareEffect.Play();
+			}
+			return true;
 		}
 		else if (!IsRepaired && CanBeRepared())
 		{
 			RepairAndSpendResources();
-            return true;
+			if (_repareEffect)
+			{
+				_repareEffect.Play();
+			}
+			return true;
 		}
 
-		GameRulesManager.Instance.OnTrapFound(this);
         return false;
 	}
 
