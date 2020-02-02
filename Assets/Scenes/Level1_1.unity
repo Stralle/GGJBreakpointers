@@ -4874,6 +4874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 1
   TIME_OF_REPARE_PHASE: 30
+  LEVEL: 1
 --- !u!4 &883267945
 Transform:
   m_ObjectHideFlags: 0
