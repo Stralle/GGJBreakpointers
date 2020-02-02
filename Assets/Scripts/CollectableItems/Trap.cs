@@ -27,6 +27,9 @@ public class Trap : MonoBehaviour, IRepairable
     [SerializeField]
     protected bool _isActive = false;
 
+    [SerializeField]
+    protected GameObject _canvas = null;
+
     // Getters and setters
     public int DamageDealt => _damageDealt;
 
@@ -60,4 +63,26 @@ public class Trap : MonoBehaviour, IRepairable
 			RepairAndSpendResources();
 		}
 	}
+
+    public void SetUIFeedbackActive(bool _setActive)
+    {
+        if (_canvas == null)
+        {
+            Debug.LogError("The canvas is missing!");
+            return;
+        }
+
+        _canvas.SetActive(_setActive);
+    }
+
+    protected virtual void Start()
+    {
+        if (_canvas == null)
+        {
+            Debug.LogError("The trap is missing canvas!");
+            return;
+        }
+
+        SetUIFeedbackActive(false);
+    }
 }
