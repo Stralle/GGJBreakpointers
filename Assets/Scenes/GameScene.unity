@@ -1084,6 +1084,7 @@ GameObject:
   - component: {fileID: 834578466}
   - component: {fileID: 834578469}
   - component: {fileID: 834578468}
+  - component: {fileID: 834578467}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -1105,6 +1106,22 @@ Transform:
   m_Father: {fileID: 199493576}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!19719996 &834578467
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834578465}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!483693784 &834578468
 TilemapRenderer:
   m_ObjectHideFlags: 0
