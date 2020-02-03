@@ -18,7 +18,8 @@ public class GameSceneManager : MonoBehaviour
 		_pauseView.Hide();
 		_ingameView.Show();
 
-		//SoundManager.Instance.StartGameMainTheme();
+		SoundManager.Instance.StopAllSounds();
+		SoundManager.Instance.StartGameMainTheme();
 	}
 
 	public void PauseGame()

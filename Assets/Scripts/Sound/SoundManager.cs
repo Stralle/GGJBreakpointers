@@ -71,7 +71,7 @@ public class SoundManager : Singleton<SoundManager>
 		_gameLoopSource.Stop();
 	}
 
-	public void StartMainMenuTheme(float volume = 0.05f)
+	public void StartMainMenuTheme(float volume = 0.25f)
 	{
 		if (_mute)
 		{

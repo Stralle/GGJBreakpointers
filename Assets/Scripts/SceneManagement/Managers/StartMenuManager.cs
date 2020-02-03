@@ -15,13 +15,14 @@ public class StartMenuManager : MonoBehaviour
 		_settingsView.Hide();
 		_mainView.Show();
 
-		//SoundManager.Instance.StartGameMainTheme();
+		SoundManager.Instance.StopAllSounds();
+		SoundManager.Instance.StartMainMenuTheme();
 	}
 
 	// MainView interaction
 	public void OpenSettings()
 	{
-		//SoundManager.Instance.PlayButtonPressedSound();
+		SoundManager.Instance.PlayButtonPressedSound();
 		_mainView.Hide();
 		_settingsView.Show();
 	}
@@ -33,20 +34,21 @@ public class StartMenuManager : MonoBehaviour
 
 	public void PlayTutor()
 	{
+		SoundManager.Instance.PlayButtonPressedSound();
 		SceneLoader.LoadScene(SceneLoader.Scenes.Tutorial);
 	}
 
 
 	public void StartGame()
 	{
-		//SoundManager.Instance.PlayButtonPressedSound();
+		SoundManager.Instance.PlayButtonPressedSound();
 		SceneLoader.LoadScene(SceneLoader.Scenes.GameLevel1);
 	}
 
 	// SettingsView interaction
 	public void CloseSettings()
 	{
-		//SoundManager.Instance.PlayButtonPressedSound();
+		SoundManager.Instance.PlayButtonPressedSound();
 		_settingsView.Hide();
 		_mainView.Show();
 	}
