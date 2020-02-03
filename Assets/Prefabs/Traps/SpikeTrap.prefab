@@ -334,6 +334,7 @@ MonoBehaviour:
   _isRepaired: 1
   _isActive: 1
   _canvas: {fileID: 5847391771256162507}
+  _repairSound: {fileID: 8300000, guid: e55617d8572df4416874e2149068207a, type: 3}
   _brokenSpikeSprite: {fileID: 5151962614583625095, guid: 4c1fa0adf0d45fa4191c3076c8c20d98,
     type: 3}
   _activeSpikeSprite: {fileID: 7382210792774636493, guid: 4c1fa0adf0d45fa4191c3076c8c20d98,

@@ -33,6 +33,8 @@ public class Trap : MonoBehaviour, IRepairable
     [SerializeField]
     protected GameObject _canvas = null;
 
+	[SerializeField] AudioClip _repairSound = null;
+
     // Getters and setters
     public int DamageDealt => _damageDealt;
 
@@ -74,6 +76,10 @@ public class Trap : MonoBehaviour, IRepairable
 			if (_repareEffect)
 			{
 				_repareEffect.Play();
+			}
+			if (_repairSound)
+			{
+				SoundManager.Instance.PlayOneTimeSound(_repairSound, 0.4f);
 			}
 			return true;
 		}
