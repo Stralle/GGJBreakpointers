@@ -25,10 +25,13 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	//Event called when the knight is spawned
 	public event Action<EnemyBase> OnKnightSpawned = delegate { };
 
+	public event Action<bool> OnLevelFinished = delegate { };
+
 	public event Action OnNewTrapLocated = delegate { };
 	public event Action OnTrapLost = delegate { };
 
 	[SerializeField] int LEVEL = 0;
+	bool _playerWon = false;
 
 	Trap _activeTrap = null;
 	public Trap ActiveTrap => _activeTrap;
@@ -102,6 +105,24 @@ public class GameRulesManager : Singleton<GameRulesManager>, IGameRulesManager
 	{
 		_activeTrap = null;
 		OnTrapLost.Invoke();
+	}
+
+	public void LevelFinished(bool playerWon)
+	{
+		_playerWon = playerWon;
+		OnLevelFinished.Invoke(playerWon);
+	}
+
+	public void ResultsTextWasShown()
+	{
+		if (_playerWon)
+		{
+			GoToNextLevel();
+		}
+		else
+		{
+			EndGame();
+		}
 	}
 
 	public virtual void EndGame()
