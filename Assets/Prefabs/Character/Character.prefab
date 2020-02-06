@@ -151,8 +151,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -213451511
-  m_SortingLayer: 3
+  m_SortingLayerID: 1118592977
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 2572365745140355499, guid: 6c01011e9f00bdf48aa9861880709f7f,
     type: 3}
@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 3814151288126219132}
   - component: {fileID: 3814151288126219123}
   - component: {fileID: 1550212556}
+  - component: {fileID: 4901781724158754206}
   m_Layer: 0
   m_Name: physics
   m_TagString: Untagged
@@ -271,3 +272,19 @@ CircleCollider2D:
   m_Offset: {x: 0.07, y: -0.06}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &4901781724158754206
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814151288126219133}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
