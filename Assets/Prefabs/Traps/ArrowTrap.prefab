@@ -166,6 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7757287329146571599}
   - component: {fileID: 8120244322858369589}
+  - component: {fileID: 74611024}
   m_Layer: 0
   m_Name: arrow_trap_1
   m_TagString: Untagged
@@ -237,6 +238,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &74611024
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404904061571674418}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca6bba04ae2fc41e190b4a346e4984d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5776101290453658630
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +367,7 @@ GameObject:
   - component: {fileID: 7757564374668485773}
   - component: {fileID: 3133086185074639995}
   - component: {fileID: 3473301429839695096}
+  - component: {fileID: 179421646}
   m_Layer: 0
   m_Name: ArrowTrap
   m_TagString: Untagged
@@ -433,12 +454,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapType: 1
-  _damageDealt: 0
-  _junkCost: 0
+  _repareEffect: {fileID: 4236392401171027003, guid: 9e086d62c5e15bf43ad9e5841a584eda,
+    type: 3}
+  _damageDealt: 20
+  _junkCost: 5
   _isRepaired: 0
   _isActive: 0
-  _brokenArrowSprite: {fileID: 0}
-  _activeArrowSprite: {fileID: 0}
+  _canvas: {fileID: 5776101290453658630}
+  _repairSound: {fileID: 8300000, guid: e55617d8572df4416874e2149068207a, type: 3}
+  _brokenArrowSprite: {fileID: -1340422233611357008, guid: b0b26a64e275cff06ba795211a2cae97,
+    type: 3}
+  _activeArrowSprite: {fileID: 2504585558819262364, guid: b0b26a64e275cff06ba795211a2cae97,
+    type: 3}
+  _crossbowAnimator: {fileID: 74611024}
+--- !u!61 &179421646
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316561653464171310}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7734375, y: 0.4140625}
+    newSize: {x: 0.7734375, y: 0.4140625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8395009871466158556
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.002, y: -0.028}
+  m_AnchoredPosition: {x: 0.0020000935, y: -0.027999997}
   m_SizeDelta: {x: -3.14, y: -0.4764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1805237097462807255
