@@ -57,6 +57,11 @@ public class Trap : MonoBehaviour, IRepairable
 		return _junkCost <= GameRulesManager.Instance.GetAmountOfResources(EResourceType.Junk);
 	}
 
+	public virtual void TriggerTrap(EnemyBase enemy)
+	{
+		Debug.Assert(false, "Trap::TriggerTrap - Not implemented in " + name);
+	}
+
 	public bool PlayerInteract()
 	{
 		GameRulesManager.Instance.OnTrapFound(this);

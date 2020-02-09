@@ -60,6 +60,12 @@ public class EnemyBase : MonoBehaviour
 				loot.DestroyByEnemy();
 			}
 		}
+
+		TrapTrigger trapTrigger = collision.GetComponent<TrapTrigger>();
+		if (trapTrigger)
+		{
+			trapTrigger.TriggerTrap(this);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -80,6 +86,12 @@ public class EnemyBase : MonoBehaviour
 			{
 				loot.DestroyByEnemy();
 			}
+		}
+
+		TrapTrigger trapTrigger = collision.gameObject.GetComponent<TrapTrigger>();
+		if (trapTrigger)
+		{
+			trapTrigger.TriggerTrap(this);
 		}
 	}
 

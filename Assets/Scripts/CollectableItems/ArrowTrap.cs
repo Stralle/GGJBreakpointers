@@ -67,10 +67,25 @@ public class ArrowTrap : Trap
 		}
 	}
 
-	// TODO: make fire logic _crossbowAnimator.SetBool("IsFired", true);
+	public override void TriggerTrap(EnemyBase enemy)
+	{
+		Debug.Log("ArrowTrap: TriggerTrap");
+		if (!CanDealDamage())
+		{
+			Debug.Log("ArrowTrap: TriggerTrap: !CanDealDamage()");
+			return;
+		}
+
+		if (enemy)
+		{
+			Debug.Log("ArrowTrap: TriggerTrap: EnemyBase found");
+			enemy.TakeDamage(DamageDealt);
+			_crossbowAnimator.SetBool("IsFired", true);
+		}
+	}
 
 	public override bool CanDealDamage()
 	{
-		return IsActive;
+		return IsActive && !_crossbowAnimator.GetBool("IsFired"); ;
 	}
 }
