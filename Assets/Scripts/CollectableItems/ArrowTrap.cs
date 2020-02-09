@@ -14,6 +14,8 @@ public class ArrowTrap : Trap
 
 	SpriteRenderer _spriteRendererComponent = null;
 
+	[SerializeField] AudioClip _onTrapTriggeredSound = null;
+
 	override protected void Start()
 	{
 		base.Start();
@@ -81,6 +83,11 @@ public class ArrowTrap : Trap
 			Debug.Log("ArrowTrap: TriggerTrap: EnemyBase found");
 			enemy.TakeDamage(DamageDealt);
 			_crossbowAnimator.SetBool("IsFired", true);
+
+			if (_onTrapTriggeredSound)
+			{
+				SoundManager.Instance.PlayOneTimeSound(_onTrapTriggeredSound, 0.4f);
+			}
 		}
 	}
 

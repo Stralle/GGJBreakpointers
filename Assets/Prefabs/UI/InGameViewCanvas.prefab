@@ -711,6 +711,8 @@ MonoBehaviour:
   TIME_TO_SHOW_TEXT: 3
   _winText: {fileID: 5952198666854143195}
   _looseText: {fileID: 4596300482149496401}
+  _onWinSound: {fileID: 8300000, guid: c92786ecacf014f0987522248d6bcca4, type: 3}
+  _onLooseSound: {fileID: 8300000, guid: f65337b66418f400db597bfb22a54bee, type: 3}
 --- !u!1 &692354057243920530
 GameObject:
   m_ObjectHideFlags: 0

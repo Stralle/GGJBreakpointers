@@ -401,7 +401,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.5119505}
+  m_Offset: {x: 0, y: -1.5269766}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -412,7 +412,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 4.023901}
+  m_Size: {x: 1, y: 4.053953}
   m_EdgeRadius: 0
 --- !u!114 &8481361704366805041
 MonoBehaviour:
@@ -533,11 +533,14 @@ MonoBehaviour:
   _isActive: 0
   _canvas: {fileID: 5776101290453658630}
   _repairSound: {fileID: 8300000, guid: e55617d8572df4416874e2149068207a, type: 3}
+  _breakSound: {fileID: 8300000, guid: f9573c04ff73844548486f35bbb4308b, type: 3}
   _brokenArrowSprite: {fileID: -1340422233611357008, guid: b0b26a64e275cff06ba795211a2cae97,
     type: 3}
   _activeArrowSprite: {fileID: 2504585558819262364, guid: b0b26a64e275cff06ba795211a2cae97,
     type: 3}
   _crossbowAnimator: {fileID: 74611024}
+  _onTrapTriggeredSound: {fileID: 8300000, guid: 0d26af5d9c7ab4ae5bdacf4486207d73,
+    type: 3}
 --- !u!61 &179421646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -551,7 +554,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.12021494}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -562,7 +565,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.2404299}
   m_EdgeRadius: 0
 --- !u!1 &8395009871466158556
 GameObject:

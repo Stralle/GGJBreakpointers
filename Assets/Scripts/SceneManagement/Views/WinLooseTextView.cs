@@ -11,6 +11,9 @@ public class WinLooseTextView : MonoBehaviour
 	[SerializeField] GameObject _winText = null;
 	[SerializeField] GameObject _looseText = null;
 
+	[SerializeField] AudioClip _onWinSound = null;
+	[SerializeField] AudioClip _onLooseSound = null;
+
 	float _timer = -1f;
 
 	void Start()
@@ -25,10 +28,18 @@ public class WinLooseTextView : MonoBehaviour
 	{
 		if (playerWon)
 		{
+			if (_onWinSound)
+			{
+				SoundManager.Instance.PlayOneTimeSound(_onWinSound, 0.4f);
+			}
 			_winText.SetActive(true);
 		}
 		else
 		{
+			if (_onLooseSound)
+			{
+				SoundManager.Instance.PlayOneTimeSound(_onLooseSound, 0.4f);
+			}
 			_looseText.SetActive(true);
 		}
 

@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onHitEffect: {fileID: 4464948271506761501}
   _onWinEffect: {fileID: 3094349692167640421}
+  _onHitSound: {fileID: 8300000, guid: 6ae3896844603419688d59e114935a62, type: 3}
   _health: 100
   _enemyType: 0
 --- !u!61 &-4075517212064790807

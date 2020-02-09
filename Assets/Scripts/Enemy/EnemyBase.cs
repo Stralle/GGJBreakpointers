@@ -10,8 +10,10 @@ public enum EEnemyType
 
 public class EnemyBase : MonoBehaviour
 {
-	[SerializeField] ParticleSystem _onHitEffect;
-	[SerializeField] ParticleSystem _onWinEffect;
+	[SerializeField] ParticleSystem _onHitEffect = null;
+	[SerializeField] ParticleSystem _onWinEffect = null;
+
+	[SerializeField] AudioClip _onHitSound = null;
 
 	[SerializeField] int _health = 1;
 	public int Health => _health;
@@ -26,6 +28,10 @@ public class EnemyBase : MonoBehaviour
 		_onHitEffect.Play();
 
 		_health -= damage;
+		if (_onHitSound)
+		{
+			SoundManager.Instance.PlayOneTimeSound(_onHitSound, 0.3f);
+		}
 
 		if (Health <= 0)
 		{
