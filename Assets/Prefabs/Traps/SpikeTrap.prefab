@@ -335,7 +335,7 @@ MonoBehaviour:
   _isActive: 0
   _canvas: {fileID: 5847391771256162507}
   _repairSound: {fileID: 8300000, guid: e55617d8572df4416874e2149068207a, type: 3}
-  _breakSound: {fileID: 8300000, guid: f9573c04ff73844548486f35bbb4308b, type: 3}
+  _breakSound: {fileID: 8300000, guid: b4f0b765f1d5e4b27a62783e1d8ba70b, type: 3}
   _brokenSpikeSprite: {fileID: 5151962614583625095, guid: 4c1fa0adf0d45fa4191c3076c8c20d98,
     type: 3}
   _activeSpikeSprite: {fileID: 7382210792774636493, guid: 4c1fa0adf0d45fa4191c3076c8c20d98,

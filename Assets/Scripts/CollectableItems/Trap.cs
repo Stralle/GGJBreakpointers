@@ -89,7 +89,7 @@ public class Trap : MonoBehaviour, IRepairable
 			}
 			if (_repairSound)
 			{
-				SoundManager.Instance.PlayOneTimeSound(_repairSound, 0.4f);
+				SoundManager.Instance.PlayOneTimeSound(_repairSound, 0.3f);
 			}
 			return true;
 		}
