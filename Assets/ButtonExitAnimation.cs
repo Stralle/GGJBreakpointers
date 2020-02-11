@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class ButtonExitAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    public void ButtonExitGame(){
-        GetComponent<ButtonExitAnimation>().Play("ButtonExitGame")
-    }
+	public void OnButtonPressed()
+	{
+		GetComponent<Animation>().Play("ButtonExitGame");
+	}
 }
